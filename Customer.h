@@ -2,13 +2,14 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <string>
+#include <utility>
 #include <vector>
 #include "Rental.h"
 
 class Customer {
 public:
     Customer();
-    explicit Customer( const std::string& name );
+    explicit Customer( std::string  name );
 
     void addRental( const Rental& arg );
     std::string getName() const;
@@ -17,14 +18,16 @@ public:
 private:
     std::string _name;
     std::vector< Rental > _rentals;
+
+    double getAmountOfPriceCode(double thisAmount, const Rental &each) ;
 };
 
 inline Customer::
-Customer() {}
+Customer() = default;
 
 inline Customer::
-Customer( const std::string& name )
-        : _name( name ) {}
+Customer( std::string  name )
+        : _name(std::move( name )) {}
 
 inline void Customer::
 addRental( const Rental& arg ) { _rentals.push_back( arg ); }

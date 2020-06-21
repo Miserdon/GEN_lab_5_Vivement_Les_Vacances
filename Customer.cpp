@@ -16,7 +16,7 @@ string Customer::statement()
     result << "Rental Record for " << getName() << "\n";
     for ( Rental r : _rentals) {
         double thisAmount = 0;
-        Rental each = r;
+        const Rental& each = r;
         thisAmount = getAmountOfPriceCode(thisAmount, each);
 
         // add frequent renter points

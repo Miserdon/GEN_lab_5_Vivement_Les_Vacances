@@ -13,7 +13,7 @@ string Customer::statement()
     int frequentRenterPoints = 0;
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
-    for ( Rental r : _rentals) {
+    for ( const Rental& r : _rentals) {
         double thisAmount = 0;
 
         thisAmount = getAmountOfPriceCode(thisAmount, r);

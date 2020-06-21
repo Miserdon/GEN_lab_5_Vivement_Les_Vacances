@@ -19,7 +19,7 @@ private:
     std::string _name;
     std::vector< Rental > _rentals;
 
-    double getAmountOfPriceCode(double thisAmount, const Rental &each) const;
+    double getAmountOfPriceCode(double thisAmount, const Rental &each) ;
 };
 
 inline Customer::

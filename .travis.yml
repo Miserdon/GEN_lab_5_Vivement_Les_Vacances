@@ -1,3 +1,17 @@
+dist: bionic
+
+os:
+  - linux
+
 language: cpp
-compiler: script:
-  - cmake . && make 
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script:
+  - cmake --build .
+
+after_script:
+  - cmake --build . --target test_lab

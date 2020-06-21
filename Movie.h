@@ -12,7 +12,7 @@ public:
     Movie( const std::string& title, int priceCode = REGULAR );
 
     int getPriceCode() const;
-    void setPriceCode( int arg );
+
     std::string getTitle() const;
 
 private:
@@ -29,8 +29,7 @@ Movie( const std::string& title, int priceCode )
 inline int Movie::
 getPriceCode() const { return _priceCode; }
 
-inline void Movie::
-setPriceCode( int arg ) { _priceCode = arg; }
+
 
 inline std::string Movie::
 getTitle() const { return _title; }

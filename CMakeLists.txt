@@ -34,16 +34,22 @@ endif()
 
 
 # Trivial example using gtest and gmock
-add_executable(Code_source_20200620
+add_executable(test_lab
         tests/CustomerTest.cpp
         Customer.cpp
         Customer.h
         Rental.h
         tests/MovieTest.cpp
         tests/RentalTest.cpp tests/CustomerTest.cpp tests/CustomerTest.h tests/RentalTest.cpp tests/RentalTest.h tests/MovieTest.cpp tests/MovieTest.h)
-target_link_libraries(Code_source_20200620 gtest gmock_main)
+add_executable(main_lab
+        Customer.cpp
+        Customer.h
+        main.cpp
+        Movie.h
+        Rental.h)
+
+target_link_libraries(test_lab main_la gtest gmock_main)
 add_test(NAME test_lab COMMAND test_lab)
-add_test(NAME example_test COMMAND example)
 
 
 

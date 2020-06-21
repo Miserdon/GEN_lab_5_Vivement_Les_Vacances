@@ -16,17 +16,17 @@ string Customer::statement()
     result << "Rental Record for " << getName() << "\n";
     for ( Rental r : _rentals) {
         double thisAmount = 0;
-        const Rental& each = r;
-        thisAmount = getAmountOfPriceCode(thisAmount, each);
+
+        thisAmount = getAmountOfPriceCode(thisAmount, r);
 
         // add frequent renter points
         frequentRenterPoints++;
         // add bonus for a two day new release rental
-        if ( ( each.getMovie().getPriceCode() == Movie::NEW_RELEASE )
-             && each.getDaysRented() > 1 ) frequentRenterPoints++;
+        if ( ( r.getMovie().getPriceCode() == Movie::NEW_RELEASE )
+             && r.getDaysRented() > 1 ) frequentRenterPoints++;
 
         // show figures for this rental
-        result << "\t" << each.getMovie().getTitle() << "\t"
+        result << "\t" << r.getMovie().getTitle() << "\t"
                << thisAmount << "\n";
         totalAmount += thisAmount;
     }

@@ -10,7 +10,7 @@ public:
     static const int REGULAR     = 0;
     static const int NEW_RELEASE = 1;
 
-    Movie( std::string  title, int priceCode = REGULAR );
+    explicit Movie( std::string  title, int priceCode = REGULAR );
 
     int getPriceCode() const;
 

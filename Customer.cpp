@@ -36,7 +36,7 @@ string Customer::statement()
     return result.str();
 }
 
-double Customer::getAmountOfPriceCode(double thisAmount, const Rental &each) const {// determine amounts for each line
+double Customer::getAmountOfPriceCode(double thisAmount, const Rental &each) {// determine amounts for each line
     switch ( each.getMovie().getPriceCode() ) {
         case Movie::REGULAR:
             thisAmount += 2;

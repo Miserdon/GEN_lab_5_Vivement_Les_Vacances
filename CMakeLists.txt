@@ -48,7 +48,7 @@ add_executable(main_lab
         Movie.h
         Rental.h)
 
-target_link_libraries(test_lab main_la gtest gmock_main)
+target_link_libraries(test_lab gtest gmock_main)
 add_test(NAME test_lab COMMAND test_lab)
 
 

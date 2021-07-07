@@ -2,6 +2,7 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <string>
+#include <utility>
 
 class Movie {
 public:
@@ -9,7 +10,7 @@ public:
     static const int REGULAR     = 0;
     static const int NEW_RELEASE = 1;
 
-    Movie( const std::string& title, int priceCode = REGULAR );
+    explicit Movie( std::string  title, int priceCode = REGULAR );
 
     int getPriceCode() const;
 
@@ -21,8 +22,8 @@ private:
 };
 
 inline Movie::
-Movie( const std::string& title, int priceCode )
-        : _title( title )
+Movie( std::string  title, int priceCode )
+        : _title(std::move( title ))
         , _priceCode( priceCode )
 {}
 
